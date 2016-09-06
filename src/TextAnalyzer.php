@@ -349,7 +349,7 @@ class TextAnalyzer implements TextAnalyzerInterface
      * @param string $sentence
      * @return int
      */
-    private function deriveSentenceLength(string $sentence)
+    private function deriveSentenceLength($sentence)
     {
         return str_word_count($sentence);
     }
@@ -365,20 +365,8 @@ class TextAnalyzer implements TextAnalyzerInterface
         $pct['neutral'] = 100;
 
         $sentences_with_pronouns_count = $this->getSentencesWithPronounsCount();
-        //echo '<p>Sentences with pronouns: ' . $sentences_with_pronouns_count . '<br>';
-
         $self_directed_pronouns_count = $this->getSelfDirectedPronounsCount();
-
-
-        //echo '<p>Self Directed pronoun count: ' . $self_directed_pronouns_count . '<br>';
-
         $others_directed_pronouns_count = $this->pronoun_count - $self_directed_pronouns_count;
-
-        //echo '<p>Others Directed pronoun count: ' . $others_directed_pronouns_count . '<br>';
-
-        $sentenced_with_pronouns_pct = 0;
-        $self_directed_pct = 0;
-        $others_directed_pct = 0;
 
         if ($this->pronoun_count > 0 && $this->sentence_count > 0) {
             $sentences_with_pronouns_pct = $sentences_with_pronouns_count / $this->sentence_count;
