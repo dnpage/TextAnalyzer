@@ -14,7 +14,7 @@ interface TextAnalyzerInterface
     public function getAllWords();
     public function getUniqueWordFrequency();
     public function getAbridgedWordFrequency();
-    public function getTopAbridgedWordFrequency(int $count);
+    public function getTopAbridgedWordFrequency($count);
     public function getPronounFrequency();
     public function getSyllableCount();
     public function getSentenceCount();

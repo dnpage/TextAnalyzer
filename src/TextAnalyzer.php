@@ -135,7 +135,7 @@ class TextAnalyzer implements TextAnalyzerInterface
      * @param int $count
      * @return array
      */
-    public function getTopAbridgedWordFrequency(int $count)
+    public function getTopAbridgedWordFrequency($count)
     {
         arsort($this->abridged_words);
         $top = array_slice($this->abridged_words, 0, $count);
@@ -235,7 +235,7 @@ class TextAnalyzer implements TextAnalyzerInterface
      * @param string $word
      * @return int
      */
-    private function deriveNumberOfSyllables(string $word)
+    private function deriveNumberOfSyllables($word)
     {
         $syllable_count = 0;
         $last_was_vowel = false;
@@ -288,7 +288,7 @@ class TextAnalyzer implements TextAnalyzerInterface
      * @param string $word
      * @return string
      */
-    private function convertWord(string $word)
+    private function convertWord($word)
     {
         $temp = strtolower($word);
         $search  = ['ome', 'ime', 'imn',  'ine', 'ely', 'ure', 'ery'];
@@ -301,7 +301,7 @@ class TextAnalyzer implements TextAnalyzerInterface
      * @param string $end_str
      * @return bool
      */
-    private function endsWith(string $string, string $end_str)
+    private function endsWith($string, $end_str)
     {
         $str_len = strlen($string);
         $test_len = strlen($end_str);
@@ -313,7 +313,7 @@ class TextAnalyzer implements TextAnalyzerInterface
      * @param string $character
      * @return bool
      */
-    private function isVowel(string $character)
+    private function isVowel($character)
     {
         $vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
         return in_array($character, $vowels);
